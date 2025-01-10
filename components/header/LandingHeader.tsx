@@ -2,12 +2,11 @@ import {
     NavigationMenu,
     NavigationMenuList,
 } from "@/components/ui/navigation-menu"
-
 import Logo from "../Logo";
 import React from "react";
 import LinkItem from "./LinkItem";
-import SidePenal from "./SidePenal";
-import HeaderWraper from "./HeaderWraper";
+import { Headerwraper } from "./wraper";
+import Link from "next/link";
 
 const Links = [
     // {
@@ -22,11 +21,13 @@ const Links = [
 
 const LandingHeader = () => {
     return (
-        <HeaderWraper>
-            <div className="flex items-center justify-between">
-                <Logo />
-                <NavigationMenu className="hidden md:flex">
-                    <NavigationMenuList className="hidden md:flex">
+        <Headerwraper>
+            <header className="container h-14 flex items-center justify-between">
+                <Link href="/">
+                    <Logo />
+                </Link>
+                <NavigationMenu>
+                    <NavigationMenuList className="flex">
                         {Links.map((item, i) => (
                             <LinkItem
                                 key={i}
@@ -35,9 +36,8 @@ const LandingHeader = () => {
                         ))}
                     </NavigationMenuList>
                 </NavigationMenu>
-                <SidePenal links={Links} />
-            </div>
-        </HeaderWraper>
+            </header>
+        </Headerwraper>
     );
 };
 

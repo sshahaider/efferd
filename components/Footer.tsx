@@ -8,15 +8,15 @@ export const Footer = () => {
   const socialLinks = [
     {
       icon: <InstagramLogoIcon className="size-5" />,
-      link: "https://www.instagram.com/qeniksoft/"
+      link: "https://www.instagram.com/efferdhq/"
     },
     {
       icon: <YoutubeIcon className="size-5" />,
-      link: "https://www.youtube.com/@qenik"
+      link: "https://www.youtube.com/@efferdhq"
     },
     {
       icon: <FaceBookIcon className="size-5" />,
-      link: "https://www.facebook.com/qeniksoft/"
+      link: "https://www.facebook.com/efferdhq/"
     }
   ]
 

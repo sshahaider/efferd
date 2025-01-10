@@ -1,37 +1,31 @@
-import Image from 'next/image'
-import Link from 'next/link';
 import React from 'react'
+import { cva, type VariantProps } from "class-variance-authority"
 
 interface Props {
     size?: "sm" | "md" | "lg"
 }
 
-const Logo: React.FC<Props> = ({ size = "sm" }) => {
-
-    let width: number = 102;
-    let height: number = 26;
-
-
-    switch (size) {
-        case "sm":
-            width = width;
-            height = height;
-            break;
-        case "md":
-            width = 140;
-            height = 35;
-            break;
-        case "lg":
-            width = 217;
-            height = 55;
-            break;
-        default:
-            break;
+const logoVariants = cva(
+    "w-max dark:invert",
+    {
+        variants: {
+            size: {
+                sm: "h-5",
+                md: "h-7",
+                lg: "h-10"
+            },
+        },
+        defaultVariants: {
+            size: "sm",
+        },
     }
+)
 
-
-
-    return <Link href="/"><Image alt='logo' width={width} height={height} className='dark:invert' src='/logo.png' /></Link>
+const Logo: React.FC<Props> = ({ size }) => {
+    return <img
+        alt='Logo'
+        className={logoVariants({ size })}
+        src='/logo.png'
+    />
 }
-
 export default Logo
